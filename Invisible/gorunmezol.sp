@@ -40,11 +40,13 @@ public Action Command_Invinsible (int client, int args){
 	
 	if(!invisibility) {
 		invisibility = true;
-		SetEntityRenderColor(client, 255, 255, 255, 0);
+		SetEntityRenderMode(client, RENDER_TRANSALPHA);
+		SetEntityRenderColor(client, 255, 255, 255, 128); 
 		ReplyToCommand(client, "\x02[SM] \x04Görünmez Oldunuz!");
 	} else {
 		invisibility = false;
-		SetEntityRenderColor(client, 255,255,255,255);
+		SetEntityRenderMode(client, RENDER_NORMAL);
+		SetEntityRenderColor(client);
 		ReplyToCommand(client, "\x02[SM] \x04Görünmezlikten Çıktınız!");
 	}		
 	return Plugin_Handled;
